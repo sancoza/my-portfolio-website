@@ -371,6 +371,12 @@
               <article class="contact-form">
                 <h3>Feel free to contact me :</h3>
                 <form action="https://formsubmit.co/f0b6fd7ff2bfa435f777f81b5eb0d037" method="POST">
+                  <!-- Honeypot -->
+                  <input type="text" name="_honey" style="display: none;">
+                  <!-- Disable Captcha -->
+                  <input type="hidden" name="_captcha" value="false">
+                  <input type="hidden" name="_next" value="https://magnificent-tapioca-ae290a.netlify.app/success.html">
+
                   <div class="user-details">
                     <div class="input-box">
                       <span class="details">Hi 👋 my name is Sandra...</span>
@@ -381,29 +387,10 @@
                       <input type="email" name="email" id="email" placeholder=" email@example.com...">
                     </div>
                   </div>
-                    <div class="pick">
-                      <input type="radio" name="pick" id="dot-1">
-                      <input type="radio" name="pick" id="dot-2">
-                      <input type="radio" name="pick" id="dot-3">
-                      <span class="pick-title">You want to work with me 😍</span>
-                      <div class="pick-category">
-                        <label for="dot-1">
-                          <span class="dot one"></span>
-                          <span class="category-name">Full time job</span>
-                        </label>
-                        <label for="dot-2">
-                          <span class="dot two"></span>
-                          <span class="category-name">You need Web Developer</span>
-                        </label>
-                        <label for="dot-3">
-                          <span class="dot three"></span>
-                          <span class="category-name">You need Graphic Designer</span>
-                        </label>
-                      </div>
-                    </div>
+                   
                     <div class="input-box">
                       <span class="details">Your message</span>
-                      <textarea cols="30" rows="20" placeholder=" Write me something nice ..."></textarea>
+                      <textarea name="message" cols="30" rows="20" placeholder=" Write me something nice ..."></textarea>
                        
                     </div>
                     <button type="submit" value="submit">
