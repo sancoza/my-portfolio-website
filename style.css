@@ -311,3 +311,36 @@ form input[type="radio"] {
 form button {
  display: block;
 }
+/* success page */
+.success {
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.success .fa {
+  font-size: 10rem;
+  font-weight: 100;
+  color: #64c043;
+}
+.success h1 {
+ color: #7d7d7d;
+ font-weight: 400;
+ font-size: 2rem;
+}
+.success a {
+  color: #333;
+  font-weight: 700;
+}
+.success p {
+  color: #7d7d7d;
+  line-height: 1.3;
+}
+.success p span {
+  text-transform: uppercase;
+  font-size: .9rem;
+  font-weight: 600;
+}
