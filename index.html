@@ -14,6 +14,9 @@
   <link rel="stylesheet" href="css/owl-carousel/owl.theme.default.min.css">
 
   <link rel="stylesheet" href="./css/animate/7.1 animate.css.css">
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
 
   <link rel="stylesheet" href="./basic.css" />
   <link rel="stylesheet" href="./style.css" />
@@ -21,10 +24,7 @@
 </head>
 
 <body>
-
-  <!--------------------- header --------------------->
-  <header class="bg-parallax animated fadeIn">
-    <!-- navigation -->
+<!-- navigation -->
     <nav>
       <div class="container">
         <div class="navigation">
@@ -35,50 +35,54 @@
             </ul>
             <ul>
               <li><a href="#about">About Me</a></li>
-              <li><a href="#home">CV</a></li>
+              <li><a href="#home" class="cv-pill">CV</a></li>
               <li><a href="#design">My Designs</a></li>
             </ul>
             <ul>
-              <li><a href="#home">Contact</a></li>
+              <li><a href="#contact-info">Contact</a></li>
             </ul>
           </div>
 
         </div>
       </div>
     </nav>
+  <!--------------------- header --------------------->
+  <header class="bg-parallax">
+    
     <!-- showcase -->
-    <section class="showcase d-flex">
-      <div class="layer left animated slideInLeft">
-        <div class="content-wrap">
-          <div class="content-text">
-            <h1>Graphic <span>designer</span></h1>
-            <p>
-              Working as a graphic designer for ten years. <br />
-              &hearts; to use Adobe Illustrator in combination with Photo Shop.
-              <br />
-              Also use Adobe XD but I prefer to write direct code. <br />
-              <span> CHECK OUT MY <strong>DESIGN</strong> PORTFOLIO</span>
-            </p>
-          </div>
-        </div>
+<section class="showcase">
+  <!-- Left box -->
+  <div class="box left animate__animated animate__fadeInLeft animate__faster">
+    <h1>Graphic <span>designer</span></h1>
+    <p>
+      Working as a graphic designer for ten years.
+      &hearts; to use Adobe Illustrator and Photoshop
+      for creating professional designs. 
+      I also love drawing and illustrating 
+      in Procreate on my iPad. 
+      <span>CHECK OUT MY <strong>DESIGN</strong> PORTFOLIO</span>
+    </p>
+  </div>
 
-      </div>
-      <div class="layer right animated slideInRight">
-        <div class="content-wrap">
-          <div class="content-text">
-            <h1>Web developer</h1>
-            <p>
-              Practice Front End for more than a year. <br />
-              Mastered HTML CSS Java Script still learning PHP React <br />
-              I try to Writes clean and elegant code.
-              <br />
-              <span> CHECK OUT MY <strong>CODE</strong> PORTFOLIO</span>
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <!-- Middle box (image) -->
+  <div class="box image-box">
+    <img src="img/me.png" alt="Graphic & Web" />
+  </div>
+
+  <!-- Right box -->
+  <div class="box right animate__animated animate__fadeInRight animate__faster">
+    <h1>Web <span>developer</span></h1>
+  <p>
+  Creating custom themes with a clean, modern style. 
+  Skilled in HTML, CSS and JavaScript, WordPress plus database and hosting setup. 
+  Focused on responsive, functional websites ready to launch. 
+  <span>CHECK OUT MY <strong>CODE</strong> PORTFOLIO</span>
+</p>
+  </div>
+</section>
+
   </header>
+  <div class="hero-spacer"></div>
   <!--------------------- main--------------------->
   <main>
 
@@ -107,16 +111,7 @@
               </div>
             </div>
           </div>
-          <div class="content-box">
-            <div class="service-item">
-              <div class="service-item-icon">
-                <img src="./img/icons/app.jpg" style="width: fit-content;" alt="">
-              </div>
-              <div class="service-item-title">
-                <h3>App Design</h3>
-              </div>
-            </div>
-          </div>
+      
           <div class="content-box">
             <div class="service-item">
               <div class="service-item-icon">
@@ -177,6 +172,21 @@
               </div>
             </div>
           </div>
+          <div class="content-box">
+  <div class="service-item">
+    <div class="service-item-icon">
+      <img src="./img/icons/button.jpg" style="width: fit-content;" alt="">
+    </div>
+    <div class="service-item-title">
+      <h3>See My Portfolio</h3>
+    </div>
+    <div class="service-item-btn" style="margin-top:10px;">
+      <a href="portfolio.html">
+        <button>Go to Portfolio</button>
+      </a>
+    </div>
+  </div>
+</div>
 
 
         </div>
@@ -272,20 +282,7 @@
                 <button>Invite me to work</button>
               </div>
             </div>
-            <div class="card">
-              <div class="design-slide-title">
-                <img src="./img/icons/app.jpg" style="width: fit-content;" alt="">
-                <h3>App design</h3>
-              </div>
-              <div class="designs owl-carousel owl-theme">
-                <img src="./img/logo/attachment_129490668.png" alt="">
-                <img src="./img/logo/attachment_143596158.png" alt="">
-                <img src="./img/logo/56c6e90a-54a9-47f5-a3c9-17312dbc3226.png" alt="">
-              </div>
-              <div class="btn">
-                <button>Invite me to work</button>
-              </div>
-            </div>
+   
 
             <div class="card">
               <div class="design-slide-title">
@@ -332,7 +329,7 @@
               <img src="./img/software/1.jpg" class="img-responsive" alt="software">
             </div>
             <div class="slide">
-              <img src="./img/software/2.jpg" class="img-responsive" alt="software">
+              <img src="./img/software/2.png" class="img-responsive" alt="software">
             </div>
             <div class="slide">
               <img src="./img/software/3.jpg" class="img-responsive" alt="software">
@@ -401,7 +398,7 @@
             </article>
          
      
-        <article class="contact-info">
+        <article class="contact-info" id="contact-info">
             <h2>Let's chat. <br>
             Tell me about your <br>
             project</h2>

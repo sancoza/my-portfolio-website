@@ -1,0 +1,254 @@
+<!---------------------https://www.wildyriftian.com/works --------------------->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Works · Folders Demo</title>
+
+  <style>
+    /* =====================
+       VARS / BASE
+       ===================== */
+    :root{
+      --ink:#1b1b1b;
+      --muted:#bdbdbd;
+      --card:#d9d9d9;          /* svetla siva fascikla (neaktivna) */
+      --stroke:#dcdcdc;        /* tanak border */
+      --active:#ffe430;        /* framer žuta */
+      --container:1200px;
+      --radius:6px;            /* njihov mekši radius */
+    }
+
+    *{box-sizing:border-box}
+    html,body{margin:0}
+    body{
+      font-family:"Cormorant Garamond", Georgia, serif;
+      color:var(--ink);
+      background:#fff;
+    }
+
+    /* =====================
+       SECTION HEADER
+       ===================== */
+    .folders2{background:#fff; padding:40px 0 80px}
+    .folders2__head{max-width:var(--container); margin:0 auto 10px; padding:0 18px}
+    .folders2__head h2{
+      font:500 clamp(28px,4.5vw,56px)/1.1 "Cormorant Garamond", Georgia, serif;
+      margin:0;
+    }
+    .folders2__head span{
+      color:#dcdcdc; font-weight:300;
+      margin-left: clamp(20px,8vw,180px);
+    }
+
+    /* =====================
+       GRID 3 + 3 (dve kolone)
+       ===================== */
+    .folders2__wrap{
+      max-width:var(--container); margin:0 auto; padding:0 18px;
+      display:grid; grid-template-columns:1fr 1fr; gap:32px; position:relative;
+    }
+    .col{display:flex; flex-direction:column; gap:26px; position:relative}
+    .col--right{ margin-top: 80px }                         /* spuštena desna kolona */
+    .col--right .folder{ margin-left: min(12vw, 180px) }    /* ulazi u levu kolonu */
+
+    /* =====================
+       FOLDER (kartica)
+       ===================== */
+    .folder{
+      position:relative; isolation:isolate;
+      min-height:150px;
+      border-radius:var(--radius);
+      clip-path:url(#clip-folder);          /* seče ušicu gore-desno */
+      background:var(--card);
+      border:1px solid var(--stroke);
+      box-shadow:0 8px 22px rgba(0,0,0,.10);
+      transition:
+        transform .2s ease,
+        background .25s ease,
+        box-shadow .25s ease,
+        filter .2s ease,
+        opacity .2s ease;
+    }
+
+    /* Header unutar kartice */
+    .head{
+      position:relative; z-index:3;
+      display:flex; gap:18px; align-items:center;
+      padding:22px clamp(16px,4vw,42px);
+    }
+    .head .num{
+      font:600 12px/1 ui-monospace, SFMono-Regular, Menlo, Consolas;
+      color:#8f8f8f; letter-spacing:.1em;
+    }
+    .head h3{
+      font:500 clamp(28px,4vw,56px)/1.05 "Cormorant Garamond", Georgia, serif;
+      margin:0; color:#111;
+    }
+
+    /* =====================
+       “POCKET” – tri slike koje vire
+       ===================== */
+    .pocket{ position:absolute; inset:0; padding:0 22% 0 12%; z-index:2; pointer-events:none }
+    .peek{
+      position:absolute; bottom:36%;
+      width: clamp(140px, 22vw, 260px); aspect-ratio:3/4;
+      border-radius:10px; overflow:hidden;
+      box-shadow:0 18px 44px rgba(0,0,0,.32);
+      transform-origin:bottom center;
+      transition: transform .45s cubic-bezier(.2,.7,.2,1), filter .25s, opacity .25s;
+    }
+    .peek img{width:100%; height:100%; object-fit:cover; display:block}
+    .peek.b{ left:6%;  z-index:1; transform: translateY(56%) rotate(-10deg) scale(.94); filter:brightness(.9) saturate(.9) }
+    .peek.m{ left:20%; z-index:2; transform: translateY(48%) rotate(-4deg)  scale(.96) }
+    .peek.t{ left:34%; z-index:3; transform: translateY(38%) rotate( 3deg)  scale(1.0) }
+
+    /* =====================
+       INTERAKCIJE
+       ===================== */
+    .folder:hover{
+      background:var(--active);
+      box-shadow:0 16px 48px rgba(38,34,21,.15);
+      transform:translateY(-4px);
+    }
+    .folder:hover .head .num{ color:#3a3a3a }
+
+    /* Posivi ostale kad je bilo koja aktivna (hover) */
+    .folders2__wrap:hover .folder{ opacity:.35; filter:grayscale(.9) }
+    .folders2__wrap:hover .folder:hover{ opacity:1; filter:none }
+
+    /* =====================
+       RESPONSIVE
+       ===================== */
+    @media (max-width:1020px){
+      .folders2__wrap{ grid-template-columns:1fr; gap:30px }
+      .col--right{ margin-top:0 }
+      .col--right .folder{ margin-left:0 }
+    }
+    @media (max-width:700px){
+      .pocket{ padding:0 8% 0 10% }
+      .peek.b{ left:2% } .peek.m{ left:20% } .peek.t{ left:38% }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ====== WORKS · TWO ROWS (3 + 3) ====== -->
+<section class="folders2">
+
+  <!-- SVG clip za ivicu fascikle (ušica gore desno) -->
+  <svg width="0" height="0" aria-hidden="true">
+    <defs>
+      <!-- oblik: leva ravna, mala ušica gore desno, pa do dna -->
+      <clipPath id="clip-folder" clipPathUnits="objectBoundingBox">
+        <path d="M0,0 H0.82 C0.86,0 0.88,0.06 0.90,0.10 L0.94,0.16 C0.96,0.19 0.98,0.20 1,0.20 V1 H0 Z"/>
+      </clipPath>
+    </defs>
+  </svg>
+
+  <div class="folders2__head">
+    <h2>Works <span>Archive</span></h2>
+  </div>
+
+  <div class="folders2__wrap">
+    <!-- LEVA KOLONA -->
+    <div class="col col--left">
+      <article class="folder" data-i="01">
+        <div class="pocket">
+          <a class="peek b" href="#"><img src="img/works/motion-1.webp" alt=""></a>
+          <a class="peek m" href="#"><img src="img/works/motion-2.webp" alt=""></a>
+          <a class="peek t" href="#"><img src="img/works/motion-3.webp" alt=""></a>
+        </div>
+        <header class="head"><span class="num">01</span><h3>motion</h3></header>
+      </article>
+
+      <article class="folder" data-i="03">
+        <div class="pocket">
+          <a class="peek b" href="#"><img src="img/works/motion-4.webp" alt=""></a>
+          <a class="peek m" href="#"><img src="img/works/motion-5.webp" alt=""></a>
+          <a class="peek t" href="#"><img src="img/works/motion-6.webp" alt=""></a>
+        </div>
+        <header class="head"><span class="num">03</span><h3>editorial</h3></header>
+      </article>
+
+      <article class="folder" data-i="05">
+        <div class="pocket">
+          <a class="peek b" href="#"><img src="img/works/motion-7.webp" alt=""></a>
+          <a class="peek m" href="#"><img src="img/works/motion-8.webp" alt=""></a>
+          <a class="peek t" href="#"><img src="img/works/motion-9.webp" alt=""></a>
+        </div>
+        <header class="head"><span class="num">05</span><h3>illustration</h3></header>
+      </article>
+    </div>
+
+    <!-- DESNA KOLONA (ulazi u levu) -->
+    <div class="col col--right">
+      <article class="folder" data-i="02">
+        <div class="pocket">
+          <a class="peek b" href="#"><img src="img/works/motion-10.webp" alt=""></a>
+          <a class="peek m" href="#"><img src="img/works/motion-11.webp" alt=""></a>
+          <a class="peek t" href="#"><img src="img/works/motion-12.webp" alt=""></a>
+        </div>
+        <header class="head"><span class="num">02</span><h3>branding</h3></header>
+      </article>
+
+      <article class="folder" data-i="04">
+        <div class="pocket">
+          <a class="peek b" href="#"><img src="img/works/photo-2.jpg" alt=""></a>
+          <a class="peek m" href="#"><img src="img/works/photo-3.jpg" alt=""></a>
+          <a class="peek t" href="#"><img src="img/works/photo-1.jpg" alt=""></a>
+        </div>
+        <header class="head"><span class="num">04</span><h3>photoworks</h3></header>
+      </article>
+
+      <article class="folder" data-i="06">
+        <div class="pocket">
+          <a class="peek b" href="#"><img src="img/works/3d-2.jpg" alt=""></a>
+          <a class="peek m" href="#"><img src="img/works/3d-3.jpg" alt=""></a>
+          <a class="peek t" href="#"><img src="img/works/3d-1.jpg" alt=""></a>
+        </div>
+        <header class="head"><span class="num">06</span><h3>3D tech</h3></header>
+      </article>
+    </div>
+  </div>
+</section>
+
+<script>
+/* Tap/klik na mobilu: aktiviraj kao hover i posivi ostale */
+(() => {
+  const wrap = document.querySelector('.folders2__wrap');
+  if (!wrap) return;
+
+  wrap.addEventListener('click', e => {
+    const card = e.target.closest('.folder');
+    if (!card) return;
+    // toggle active
+    const already = card.classList.contains('is-active');
+    wrap.querySelectorAll('.folder').forEach(f => f.classList.remove('is-active'));
+    if (!already) card.classList.add('is-active');
+  });
+
+  // stilovi za .is-active (isti efekat kao hover)
+  const style = document.createElement('style');
+  style.textContent = `
+    .folders2__wrap .folder.is-active{
+      background:var(--active);
+      transform:translateY(-4px);
+      box-shadow:0 16px 48px rgba(38,34,21,.15);
+    }
+    .folders2__wrap .folder.is-active .head .num{ color:#3a3a3a }
+    .folders2__wrap .folder.is-active .peek.b{ transform: translateY(4%)  rotate(-12deg) scale(1.02) }
+    .folders2__wrap .folder.is-active .peek.m{ transform: translateY(-2%) rotate(-6deg)  scale(1.04) }
+    .folders2__wrap .folder.is-active .peek.t{ transform: translateY(-8%) rotate(3deg)  scale(1.06) }
+    .folders2__wrap:has(.folder.is-active) .folder:not(.is-active){ opacity:.35; filter:grayscale(.9) }
+  `;
+  document.head.appendChild(style);
+})();
+</script>
+
+</body>
+</html>
+
+
+
